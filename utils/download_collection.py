@@ -8,7 +8,7 @@ def get_url(collection_id, next_string):
     limit = 200
     if next_string == None:
         return f'https://api.opensea.io/api/v2/collection/{collection_id}/nfts?limit={limit}'
-    return f'https://api.opensea.io/api/v2/collection/milady/nfts?limit={limit}&next={next_string}'
+    return f'https://api.opensea.io/api/v2/collection/{collection_id}/nfts?limit={limit}&next={next_string}'
 
 def main():
     parser = argparse.ArgumentParser()
