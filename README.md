@@ -2,10 +2,12 @@
 Machine learning with 10,000 generative pfpNFT's in a neochibi aesthetic inspired by street style tribes.
 
 ## Docker Environment
+Building image:
 ```
-docker build -t milady .
+bash docker_build.sh
 ```
 
+Running container:
 ```
-docker run -it -v $(pwd):/project/ milady bash
+bash docker_run.sh
 ```
