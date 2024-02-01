@@ -4,10 +4,10 @@ import json
 import argparse
 from urllib.request import urlretrieve
 
-def get_url(next_string):
+def get_url(collection_id, next_string):
     limit = 200
     if next_string == None:
-        return f'https://api.opensea.io/api/v2/collection/milady/nfts?limit={limit}'
+        return f'https://api.opensea.io/api/v2/collection/{collection_id}/nfts?limit={limit}'
     return f'https://api.opensea.io/api/v2/collection/milady/nfts?limit={limit}&next={next_string}'
 
 def main():
@@ -28,7 +28,7 @@ def main():
     headers = {'accept': 'application/json', 'x-api-key': args.api_key}
 
     while True:
-        url = get_url(next_string)
+        url = get_url(args.collection, next_string)
         response = dict(json.loads(requests.get(url, headers=headers).text))
         collection_data.extend(response[nfts_key])
         print(f'{len(collection_data)} NFTs have been parsed.')
